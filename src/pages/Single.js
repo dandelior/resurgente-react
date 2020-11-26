@@ -47,6 +47,7 @@ export default function Single() {
             <Helmet>
                 <title>{postData.titulo} — Resurgente</title>
                 <meta name="description" content={firstText}/>
+                <meta name="author" content={postData.nombreAutor} />
             </Helmet>
             <article className="the-article">
         
