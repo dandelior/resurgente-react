@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { AnimatedSwitch } from 'react-router-transition';
 
-function App() {
+// Components
+import Header from "./components/header";
+import Footer from "./components/footer";
+import ScrollToTop from "./components/scrollToTop";
+
+// Pages
+import Home from "./pages/Home";
+import Tag from "./pages/Tag";
+import Single from "./pages/Single";
+import Autor from "./pages/Autor";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+
+      <ScrollToTop />
+      
+      <AnimatedSwitch
+        atEnter={{ opacity: 0 }}
+        atLeave={{ opacity: 0 }}
+        atActive={{ opacity: 1 }}
+      >
+
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        <Route exact path="/:slug">
+          <Single />
+        </Route>
+
+        <Route exact path="/tag/:slug">
+          <Tag />
+        </Route>
+
+        <Route exact path="/autor/:slug">
+          <Autor />
+        </Route>
+
+      </AnimatedSwitch>
+      <Footer />
+    </Router>
   );
 }
-
-export default App;

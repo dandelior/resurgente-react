@@ -1,0 +1,1654 @@
+@import 'reset'
+@import 'fonts'
+
+// Colors
+$print-black: #454444
+$blue-cream: #F9F9F9
+$selected: #BAA15F
+
+// Typography
+@mixin font-head
+    font-family: 'Tiempos Headline'
+
+@mixin font-monospace
+    font-family: 'Inconsolata', monospace
+    
+@mixin font-serif
+    font-family: 'Merriweather', serif
+
+// $global: Basics + Helpers: Reusar o setear valores
+body
+    background-color: white
+    box-sizing: border-box
+    @include font-monospace
+    position: relative
+    color: $print-black
+    &.fixed
+        overflow: hidden
+
+a
+    text-decoration: none
+
+.pd-lr
+    padding-left: 30px
+    padding-right: 30px
+
+@media (min-width: 768px)
+    .pd-lr
+        padding-left: 60px
+        padding-right: 60px
+
+@media (min-width: 900px)
+    .pd-lr
+        padding-left: 80px
+        padding-right: 80px
+
+@media (min-width: 1200px)
+    .pd-lr
+        margin-left: auto
+        margin-right: auto
+        max-width: 960px
+        padding-left: 0px
+        padding-right: 0px
+
+@media (min-width: 1400px)
+    .pd-lr
+        margin-left: auto
+        margin-right: auto
+        max-width: 1024px
+
+@media (min-width: 1600px)
+    .pd-lr
+        margin-left: auto
+        margin-right: auto
+        max-width: 1120px
+
+.section-title
+    font-size: 16px
+    line-height: 120%
+    letter-spacing: 0.22em
+    font-weight: 600
+    text-transform: uppercase
+
+.grid-articles
+    padding-top: 60px
+    padding-bottom: 26px
+    &.grid-on-category
+        padding-top: 130px !important
+        padding-bottom: 80px
+    &:nth-child(n+6)
+        padding-top: 6px
+    .grid-articles-wrapper
+        .section-header
+            display: flex
+            justify-content: space-between
+            margin-bottom: 40px
+            h6.section-title
+                width: 100%
+                // $global: declarado anteriormente
+                &.center
+                    text-align: center
+            a
+                @include font-head
+                font-size: 16px
+                line-height: 19px
+                text-align: right
+                color: $print-black
+                font-weight: normal
+                font-style: italic
+                transition: all ease 0.4s
+                width: 100%
+                &:hover,
+                &:focus
+                    color: $selected
+        .more-padding
+            padding: 40px 0 50px
+        .articles-grid
+            // &:last-child
+            margin-bottom: 42px
+            .item
+                margin-bottom: 42px
+                &:last-child
+                    margin-bottom: 0
+                .img
+                    width: 100%
+                    height: 220px
+                    background-color: $print-black
+                    background-position: center
+                    background-size: cover
+                    margin-bottom: 24px
+                .data
+                    text-align: center
+                    h6.date-tags, h6.author
+                        font-weight: normal
+                        font-size: 12px
+                        line-height: 12px
+                        text-transform: uppercase
+                        letter-spacing: 0.08em
+                        margin-bottom: 15px
+                    a
+                        color: $print-black
+                        transition: all ease 0.4s
+                        &:hover,
+                        &:focus
+                            color: $selected
+                    h3.article-title
+                        @include font-head
+                        // font-weight: 600
+                        font-size: 22px
+                        line-height: 135%
+                        margin-bottom: 15px
+                    // h6.author
+        .more
+            width: 100%
+            margin-top: -36px
+            // margin-bottom: 56px
+            margin-bottom: 50px
+            // background: red
+            button.loadMore
+                // margin: auto
+                // cursor: pointer
+                // display: block
+                // text-align: center
+                // background-color: transparent
+                // // background-color: $print-black
+                // @include font-serif
+                // // color: white
+                // font-style: italic
+                // border: none
+                // // letter-spacing: 1px
+                // // padding: 10px 22px
+                // // border-radius: 30px
+                // // text-transform: uppercase
+                // font-size: 15px
+                // font-weight: 600
+
+@media (min-width: 768px)
+    .grid-articles
+        &.grid-on-category
+            padding-top: 160px !important
+            padding-bottom: 8px
+        &:nth-child(2n)
+        .grid-articles-wrapper
+            .section-header
+                h6.section-title
+                    // $global: declarado anteriormente
+                a
+            .articles-grid
+                display: grid
+                grid-template-columns: repeat(auto-fill, 48%)
+                grid-column-gap: 4%
+                margin-bottom: 58px
+                .item
+                    // margin-bottom: 6px
+                    &:last-child
+                    .img
+                        height: 240px
+                    .data
+                        h6.date-tags, h6.author
+                        a
+                        h3.article-title
+
+@media (min-width: 1200px)
+    .grid-articles
+        padding-top: 70px
+        padding-bottom: 32px
+        &.grid-on-category
+            padding-top: 180px !important
+            padding-bottom: 0px
+            .grid-articles-wrapper
+                .articles-grid
+                    .item
+                        margin-bottom: 58px
+        &:nth-child(n+5)
+            padding-top: 0
+        .grid-articles-wrapper
+            .section-header
+                h6.section-title
+                    // $global: declarado anteriormente
+                a
+            .articles-grid
+                // display: grid
+                grid-template-columns: repeat(auto-fill, 30.5%)
+                grid-column-gap: 3%
+                justify-content: space-between
+                box-sizing: border-box
+                margin-bottom: 32px
+                .item
+                    margin-bottom: 6px
+                    &:last-child
+                    .img
+                        height: 220px
+                    .data
+                        h6.date-tags, h6.author
+                        a
+
+@media (min-width: 1400px)
+    .grid-articles
+        // padding-top: 70px
+        padding-bottom: 40px
+        &:nth-child(2n)
+            // padding-top: 0
+        .grid-articles-wrapper
+            .section-header
+                h6.section-title
+                    // $global: declarado anteriormente
+                a
+            .articles-grid
+                // display: grid
+                // grid-template-columns: repeat(auto-fill, 30.5%)
+                // grid-gap: 3%
+                // justify-content: space-between
+                // box-sizing: border-box
+                // margin-bottom: 58px
+                .item
+                    // margin-bottom: 6px
+                    &:last-child
+                    .img
+                        // height: 220px
+                    .data
+                        h6.date-tags, h6.author
+                        a
+                        h3.article-title
+
+@media (min-width: 1600px)
+    .grid-articles
+        // padding-top: 70px
+        &:nth-child(2n)
+            // padding-top: 0
+        .grid-articles-wrapper
+            .section-header
+                h6.section-title
+                    // $global: declarado anteriormente
+                a
+            .articles-grid
+                // display: grid
+                // grid-template-columns: repeat(auto-fill, 30.5%)
+                // grid-gap: 3%
+                // justify-content: space-between
+                // box-sizing: border-box
+                // margin-bottom: 58px
+                .item
+                    // margin-bottom: 6px
+                    &:last-child
+                    .img
+                        height: 230px
+                    .data
+                        h6.date-tags, h6.author
+                        a
+                        h3.article-title
+
+.background-blue-cream
+    background: $blue-cream
+
+.overflow-hidden
+    overflow: hidden
+
+// Header
+header.site-header
+    position: absolute
+    width: 100%
+    top: 0
+    z-index: 9999
+    .header-wrapper
+        width: 100%
+        box-sizing: border-box
+        display: flex
+        align-items: center
+        flex-wrap: wrap
+        justify-content: space-between
+        padding-top: 50px
+        padding-bottom: 50px
+        .brand
+            z-index: 9999
+            a
+                svg.logo
+                    path
+                        transition: all ease 0.4s
+                        fill: $print-black
+                    &.invert-logo
+                        path
+                            fill: white
+                &:hover, &:focus
+                    svg.logo
+                        path
+                            fill: $selected
+        .hamburger
+            outline: none
+            padding: 0
+            z-index: 9999
+            .hamburger-box
+                height: 15px
+                .hamburger-inner
+                    background-color: $print-black
+                    &:before
+                        background-color: $print-black
+                    &:after
+                        display: none
+                        background-color: transparent
+            &.is-active
+                .hamburger-box
+                    .hamburger-inner
+                        background-color: white !important
+                        &:before
+                            background-color: white !important
+        .menu
+            position: relative
+            width: 100%
+            .the-menu
+                position: fixed
+                top: 0
+                left: 100vw
+                right: 0
+                bottom: 0
+                width: 100vw
+                height: 100vh
+                margin: auto
+                padding-top: 300px
+                padding-left: 30px
+                padding-right: 30px
+                padding-bottom: 20px
+                background-color: $print-black
+                transition: all ease-in-out 0.5s
+                a
+                    color: white
+                    font-size: 14px
+                    font-weight: 600
+                    letter-spacing: 0.185em
+                    text-transform: uppercase
+                    display: block
+                    margin-left: 0
+                    margin-bottom: 30px
+                    opacity: 0
+                    transition: all ease-in-out 0.5s
+                    &:nth-child(1)
+                        transition-delay: 0.1s
+                    &:nth-child(2)
+                        transition-delay: 0.3s
+                    &:nth-child(3)
+                        transition-delay: 0.6s
+                    &:nth-child(4)
+                        transition-delay: 0.9s
+                    &:nth-child(5)
+                        transition-delay: 1.2s
+                    &:nth-child(6)
+                        transition-delay: 1.5s
+                    &:first-child
+                        margin-left: 0
+                    &:hover,
+                    &:focus
+                        color: $selected
+                    // &.show
+                    //     opacity: 1
+                .show-link
+                    transition: all ease-in-out 1s
+                    transition-delay: 0.5s
+                    opacity: 1
+                &.open
+                    left: 0
+                    a
+                        opacity: 1
+
+@media (min-width: 768px)
+    header.site-header
+        .header-wrapper
+            padding-top: 66px
+            // padding-bottom: 65px
+            .brand
+                a
+                    svg.logo
+                        path
+            .hamburger
+                .hamburger-box
+                    .hamburger-inner
+                        &:before
+                        &:after
+                &.is-active
+                    .hamburger-box
+                        .hamburger-inner
+                            &:before
+            .menu
+                .the-menu
+                    padding-top: 380px
+                    padding-left: 60px
+                    padding-right: 60px
+                    a
+                        &:nth-child(1)
+                        &:nth-child(2)
+                        &:nth-child(3)
+                        &:nth-child(4)
+                        &:nth-child(5)
+                        &:nth-child(6)
+                    .show-link
+
+@media (min-width: 900px)
+    header.site-header
+        .header-wrapper
+            padding-top: 65px
+            padding-bottom: 65px
+            .brand
+                a
+                    svg.logo
+                        path
+            .hamburger
+                .hamburger-box
+                    .hamburger-inner
+                        &:before
+                        &:after
+                &.is-active
+                    .hamburger-box
+                        .hamburger-inner
+                            &:before
+            .menu
+                .the-menu
+                    padding-left: 80px
+                    padding-right: 80px
+                    a
+                        &:nth-child(1)
+                        &:nth-child(2)
+                        &:nth-child(3)
+                        &:nth-child(4)
+                        &:nth-child(5)
+                        &:nth-child(6)
+                    .show-link
+
+@media (min-width: 1200px)
+    header.site-header
+        .header-wrapper
+            // padding-top: 65px
+            // padding-bottom: 65px
+            .brand
+                a
+                    svg.logo
+                        path
+            .hamburger
+                display: none
+                .hamburger-box
+                    .hamburger-inner
+                        &:before
+                        &:after
+                &.is-active
+                    .hamburger-box
+                        .hamburger-inner
+                            &:before
+            .menu
+                width: auto
+                .the-menu
+                    position: relative
+                    top: auto
+                    left: auto
+                    right: auto
+                    bottom: auto
+                    width: auto
+                    height: auto
+                    padding: 0
+                    background-color: transparent
+                    transition-delay: 0
+                    transition: all ease-in-out 0.3s
+                    a
+                        color: $print-black
+                        margin-bottom: 0
+                        margin-left: 60px
+                        display: inline
+                        opacity: 1
+                        transition-delay: 0 !important
+                        transition: all ease-in-out 0.3s !important
+                        &:nth-child(1)
+                        &:nth-child(2)
+                        &:nth-child(3)
+                        &:nth-child(4)
+                        &:nth-child(5)
+                        &:nth-child(6)
+                        &:first-child
+                            margin-left: 0
+                        &:hover,
+                        &:focus
+                            color: $selected
+                    .show-link
+
+@media (min-width: 1400px)
+    header.site-header
+        .header-wrapper
+            // padding-top: 65px
+            // padding-bottom: 65px
+            .brand
+                a
+                    svg.logo
+                        path
+            .hamburger
+                display: none
+                .hamburger-box
+                    .hamburger-inner
+                        &:before
+                        &:after
+                &.is-active
+                    .hamburger-box
+                        .hamburger-inner
+                            &:before
+            .menu
+                .the-menu
+                    a
+                        &:nth-child(1)
+                        &:nth-child(2)
+                        &:nth-child(3)
+                        &:nth-child(4)
+                        &:nth-child(5)
+                        &:nth-child(6)
+                    .show-link
+
+.toggle-menu
+    left: 0 !important
+.logo-inv
+    path
+        fill: white !important
+
+
+// -- S E C C I O N E S --
+
+// último articulo
+.last-article
+    background-color: $blue-cream
+    padding-top: 120px
+    padding-bottom: 20px
+    .last-article-wrapper
+        .img
+            width: 100%
+            height: 230px
+            background-color: $print-black
+            position: relative
+            .img-inner
+                position: absolute
+                width: 100%
+                height: 100%
+                margin: auto
+                background-color: $print-black
+                background-position: center
+                background-size: cover
+        .data
+            // font-weight: 600
+            padding: 35px 0
+            color: $print-black
+            h6.section-title
+                font-size: 14px
+                line-height: 15px
+                letter-spacing: 0.24em
+                text-transform: uppercase
+                font-weight: 600
+                margin-bottom: 26px
+            a
+                color: $print-black
+                // text-decoration: none
+                transition: all ease 0.4s
+                h1.featured-title
+                    width: 98%
+                    @include font-head
+                    font-weight: 600
+                    font-size: 34px
+                    line-height: 125%
+                    margin-top: 0
+                    margin-bottom: 20px
+                &:hover,
+                &:focus
+                    color: $selected
+            h6.featured-details
+                font-size: 12px
+                letter-spacing: 0.15em
+                line-height: 135%
+                text-transform: uppercase
+                span.hashtags
+                    display: block
+                    a
+                span.date-author
+                    display: block
+
+@media (min-width: 768px)
+    .last-article
+        padding-top: 144px
+        padding-bottom: 44px
+        .last-article-wrapper
+            display: flex
+            justify-content: space-between
+            align-items: center
+            box-sizing: border-box
+            width: 100%
+            .img
+                width: 44%
+                height: 100%
+                min-height: 310px
+                // a
+                .img-inner
+            .data
+                padding: 0 0 0 40px
+                width: 55%
+                box-sizing: border-box
+                h6.section-title
+                a
+                    h1.featured-title
+                h6.featured-details
+                    span.hashtags
+                        a
+                    span.date-author
+
+@media (min-width: 900px)
+    .last-article
+        padding-top: 150px
+        padding-bottom: 55px
+        .last-article-wrapper
+            .img
+                width: 45%
+                // a
+                .img-inner
+            .data
+                width: 55%
+                padding: 0 0 0 70px
+                h6.section-title
+                a
+                    h1.featured-title
+                h6.featured-details
+                    span.hashtags
+                        a
+                    span.date-author
+
+// @media (min-width: 900px)
+//     .last-article
+//         padding-top: 150px
+//         padding-bottom: 55px
+//         .last-article-wrapper
+//             .img
+//                 width: 45%
+//                 a
+//                     .img-inner
+//             .data
+//                 width: 55%
+//                 padding: 0 0 0 70px
+//                 h6.section-title
+//                 a
+//                     h1.featured-title
+//                 h6.featured-details
+//                     span.hashtags
+//                         a
+//                     span.date-author
+
+@media (min-width: 1200px)
+    .last-article
+        padding-top: 156px
+        // padding-bottom: 55px
+        .last-article-wrapper
+            .img
+                width: 48%
+                min-height: 326px
+                // a
+                .img-inner
+            .data
+                width: 52%
+                padding: 0 0 0 60px
+                h6.section-title
+                    margin-bottom: 26px
+                a
+                    h1.featured-title
+                        font-size: 38px
+                        line-height: 123%
+                        margin-bottom: 26px
+                h6.featured-details
+                    span.hashtags
+                        a
+                    span.date-author
+
+@media (min-width: 1400px)
+    .last-article
+        padding-top: 156px
+        // padding-bottom: 55px
+        .last-article-wrapper
+            .img
+                width: 48%
+                min-height: 334px
+                // a
+                .img-inner
+            .data
+                width: 52%
+                padding: 0 0 0 70px
+                h6.section-title
+                    margin-bottom: 26px
+                a
+                    h1.featured-title
+                        font-size: 38px
+                        line-height: 123%
+                        margin-bottom: 26px
+                h6.featured-details
+                    span.hashtags
+                        a
+                    span.date-author
+
+@media (min-width: 1600px)
+    .last-article
+        // padding-top: 175px
+        // padding-bottom: 55px
+        .last-article-wrapper
+            .img
+                width: 47%
+                min-height: 360px
+                // a
+                .img-inner
+            .data
+                width: 53%
+                padding: 0 0 0 70px
+                h6.section-title
+                    // margin-bottom: 26px
+                a
+                    h1.featured-title
+                        // font-size: 38px
+                        // line-height: 123%
+                        // margin-bottom: 26px
+                h6.featured-details
+                    span.hashtags
+                        a
+                    span.date-author
+
+// Articulos Recientes
+    // $global .grid-articles
+
+// Featured Article
+.featured-article
+    width: 100%
+    padding-top: 130px
+    padding-bottom: 130px
+    text-align: center
+    background-color: $print-black
+    background-position: center
+    background-size: cover
+    .wrapper-featured-article
+        color: white
+        margin-left: auto
+        margin-right: auto
+        max-width: 700px
+        h6.date-tags, h6.author
+            font-weight: normal
+            font-size: 12px
+            line-height: 12px
+            text-transform: uppercase
+            letter-spacing: 0.08em
+            margin-bottom: 22px
+            &:last-child
+                margin-bottom: 0
+        h3.article-title
+            @include font-head
+            font-size: 38px
+            line-height: 125%
+            margin-bottom: 15px
+            transition: all ease 0.4s
+    // a
+    &:hover,
+    &:focus
+        .wrapper-featured-article
+            h3.article-title
+                color: $selected
+
+@media (min-width: 768px)
+    .featured-article
+        padding-top: 160px
+        padding-bottom: 160px
+        padding-left: 60px
+        padding-right: 60px
+        box-sizing: border-box
+        .wrapper-featured-article
+            h6.date-tags, h6.author
+                &:last-child
+            h3.article-title
+
+@media (min-width: 1200px)
+    .featured-article
+        // padding-top: 160px
+        // padding-bottom: 160px
+        padding-left: 0
+        padding-right: 0
+        // box-sizing: border-box
+        .wrapper-featured-article
+            margin-left: auto
+            margin-rigth: auto
+            max-width: 700px
+            h6.date-tags, h6.author
+                margin-bottom: 24px
+                &:last-child
+            h3.article-title
+                margin-bottom: 26px
+
+@media (min-width: 1400px)
+    .featured-article
+        padding-top: 170px
+        padding-bottom: 170px
+        margin-bottom: 10px
+        // padding-left: 60px
+        // padding-right: 60px
+        // box-sizing: border-box
+        .wrapper-featured-article
+            h6.date-tags, h6.author
+                &:last-child
+            h3.article-title
+
+@media (min-width: 1600px)
+    .featured-article
+        padding-top: 180px
+        padding-bottom: 180px
+        // padding-left: 60px
+        // padding-right: 60px
+        // box-sizing: border-box
+        .wrapper-featured-article
+            h6.date-tags, h6.author
+                &:last-child
+            h3.article-title
+
+.pagination
+    display: flex
+    justify-content: space-between
+    padding-top: 30px
+    width: 100%
+    font-size: 15px
+    .older
+        width: 30%
+        .older-posts
+            text-transform: uppercase
+            color: $print-black
+            transition: all ease 0.3s
+            font-weight: 600
+            &:hover, &:focus
+                color: $selected
+    .page-number
+        width: 40%
+        text-align: center
+    .newer
+        width: 30%
+        text-align: right
+        .newer-posts
+            text-align: right
+            text-transform: uppercase
+            color: $print-black
+            transition: all ease 0.3s
+            font-weight: 600
+            &:hover, &:focus
+                color: $selected
+
+@media (min-width: 768px)
+    .pagination
+        margin-top: -10px
+        padding-top: 0
+        padding-bottom: 48px
+        .older
+            // width: 30%
+            .older-posts
+                // text-transform: uppercase
+        .page-number
+            // width: 40%
+            // text-align: center
+        .newer
+            // width: 30%
+            .newer-posts
+                // text-align: right
+                // text-transform: uppercase
+
+@media (min-width: 900px)
+    .pagination
+        margin-top: -10px
+        padding-top: 0
+        padding-bottom: 62px
+
+//The Article
+.the-article
+    .article-header
+        position: relative
+        padding-top: 150px
+        padding-left: 30px
+        padding-right: 30px
+        h6.hashtags,
+        h6.date-author
+            color: $print-black
+            font-size: 13px
+            line-height: 135%
+            font-style: normal
+            letter-spacing: 0.18em
+            text-transform: uppercase
+            margin-bottom: 24px
+            a
+                color: $print-black
+                transition: all ease 0.3s
+                &:hover, &:focus
+                    color: $selected
+        h1.article-title
+            color: $print-black
+            @include font-head
+            font-weight: 600
+            font-size: 34px
+            line-height: 122%
+            margin-bottom: 23px
+        h6.date-author
+            span
+                display: block
+                &:before
+                    display: none
+                    content: '—'
+                    margin-right: 0.8em
+        &:before
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            width: 100%
+            height: 110%
+            z-index: -10
+            background: $blue-cream
+    .img
+    .article-body
+        padding-top: 38px
+        padding-bottom: 28px
+        line-height: 180%
+        @include font-serif
+        color: $print-black
+        p
+            @include font-serif
+            font-size: 16px
+            font-weight: 300
+            margin-bottom: 25px
+        h3
+            @include font-head
+            font-weight: 600
+            font-size: 24px
+            line-height: 135%
+            margin-top: 48px
+            margin-bottom: 20px
+        a
+            color: $print-black
+            font-weight: 600
+            transition: all ease 0.3s
+            &:hover, &:focus
+                color: $selected
+        blockquote
+            font-size: 19px
+            font-weight: 600
+            font-style: italic
+            line-height: 170%
+            margin: 47px 0
+            p
+                font-size: 19px
+                font-weight: 600
+                font-style: italic
+                line-height: 170%
+            &:after
+                margin-top: 14px
+                content: ''
+                background-color: $print-black
+                height: 3px
+                width: 38px
+                display: block
+        ul, ol
+            margin-bottom: 30px
+            li
+                display: list-item
+                margin-left: 1.2em
+                margin-bottom: 12px
+                &:last-child
+                    margin-bottom: 25px
+        ul
+            li
+                list-style-type: disc
+        ol
+            li
+                list-style-type: decimal
+    // &:before
+    //     content: ''
+    //     position: absolute
+    //     top: 0
+    //     left: 0
+    //     right: 0
+    //     width: 100%
+    //     height: 200px
+    //     z-index: -1
+    //     background: $blue-cream
+
+@media (min-width: 768px)
+    .the-article
+        .article-header
+            padding-top: 160px
+            text-align: center
+            margin-left: auto
+            margin-right: auto
+            margin-bottom: 52px
+            h6.hashtags,
+            h6.date-author
+            h1.article-title
+                max-width: 500px
+                margin-left: auto
+                margin-right: auto
+            h6.date-author
+                span
+                    &:before
+            &:before
+                height: 140%
+        .img
+            margin-bottom: 18px
+            .img-inner
+                width: 100%
+                height: 380px
+                background-color: $print-black
+                background-position: center
+                background-size: cover
+        .article-body
+            margin-left: auto
+            margin-right: auto
+            padding-bottom: 44px
+            width: 70%
+            p
+            h3
+            blockquote
+                margin: 54px auto
+                text-align: center
+                &:after
+                    margin-left: auto
+                    margin-right: auto
+            ul, ol
+                li
+                    &:last-child
+            ul
+                li
+            ol
+                li
+
+
+@media (min-width: 900px)
+    .the-article
+        .article-header
+            padding-top: 180px
+            // text-align: center
+            // margin-left: auto
+            // margin-right: auto
+            // max-width: 500px
+            // margin-bottom: 52px
+            h6.hashtags,
+            h6.date-author
+                // font-size: 13px
+                // line-height: 135%
+                // font-style: normal
+                // letter-spacing: 0.18em
+                // text-transform: uppercase
+                // margin-bottom: 24px
+            h1.article-title
+                // @include font-head
+                // font-weight: 600
+                font-size: 42px
+                // line-height: 122%
+                // margin-bottom: 23px
+            h6.date-author
+                span
+                    // display: block
+                    &:before
+                        // display: none
+                        // content: '—'
+                        // margin-right: 0.8em
+        .img
+            // margin-bottom: 18px
+            .img-inner
+                // width: 100%
+                height: 440px
+                // background-color: $print-black
+        .article-body
+            // margin-left: auto
+            // margin-right: auto
+            width: 65%
+            // padding-top: 38px
+            // padding-bottom: 28px
+            // line-height: 180%
+            // @include font-serif
+            p
+                // @include font-serif
+                font-size: 18px
+                line-height: 185%
+                font-weight: 300
+                margin-bottom: 30px
+            h3
+                // @include font-head
+                // font-weight: 600
+                font-size: 26px
+                // line-height: 135%
+                margin-top: 50px
+                margin-bottom: 22px
+            blockquote
+                font-size: 22px
+                // font-weight: 600
+                // font-style: italic
+                // line-height: 170%
+                margin: 64px auto
+                // text-align: center
+                &:after
+                    // margin-top: 14px
+                    // margin-left: auto
+                    // margin-right: auto
+                    // content: ''
+                    // background-color: $print-black
+                    // height: 3px
+                    // width: 38px
+                    // display: block
+            ul, ol
+                li
+                    font-size: 18px
+                    line-height: 180%
+                    font-weight: 300
+                    &:last-child
+                        // margin-bottom: 25px
+            ul
+                li
+                    // list-style-type: disc
+            ol
+                li
+                    // list-style-type: decimal
+
+@media (min-width: 1200px)
+    .the-article
+        .article-header
+            padding-top: 190px
+            // text-align: center
+            // margin-left: auto
+            // margin-right: auto
+            margin-bottom: 56px
+            h6.hashtags,
+            h6.date-author
+                // font-size: 13px
+                // line-height: 135%
+                // font-style: normal
+                // letter-spacing: 0.18em
+                // text-transform: uppercase
+                // margin-bottom: 24px
+            h1.article-title
+                max-width: 600px
+                // @include font-head
+                // font-weight: 600
+                // font-size: 42px
+                // line-height: 122%
+                // margin-bottom: 23px
+            h6.date-author
+                span
+                    // display: block
+                    &:before
+                        // display: none
+                        // content: '—'
+                        // margin-right: 0.8em
+            &:before
+                height: 160%
+        .img
+            // margin-bottom: 18px
+            .img-inner
+                // width: 100%
+                // height: 440px
+                // background-color: $print-black
+        .article-body
+            // margin-left: auto
+            // margin-right: auto
+            // width: 51%
+            width: 700px
+            padding-bottom: 48px
+            // padding-top: 38px
+            // padding-bottom: 28px
+            // line-height: 180%
+            // @include font-serif
+            p
+                // @include font-serif
+                // font-size: 18px
+                // line-height: 185%
+                // font-weight: 300
+                // margin-bottom: 34px
+            h3
+                // @include font-head
+                // font-weight: 600
+                // font-size: 26px
+                // line-height: 135%
+                margin-top: 52px
+                // margin-bottom: 24px
+            blockquote
+                // font-size: 22px
+                // font-weight: 600
+                // font-style: italic
+                // line-height: 170%
+                // margin: 64px auto
+                // text-align: center
+                &:after
+                    // margin-top: 14px
+                    // margin-left: auto
+                    // margin-right: auto
+                    // content: ''
+                    // background-color: $print-black
+                    // height: 3px
+                    // width: 38px
+                    // display: block
+            ul, ol
+                li
+                    // font-size: 18px
+                    // line-height: 180%
+                    // font-weight: 300
+                    &:last-child
+                        // margin-bottom: 25px
+            ul
+                li
+                    // list-style-type: disc
+            ol
+                li
+                    // list-style-type: decimal
+
+@media (min-width: 1400px)
+    .the-article
+        .article-header
+            padding-top: 190px
+            // text-align: center
+            // margin-left: auto
+            // margin-right: auto
+            // max-width: 640px
+            margin-bottom: 54px
+            h6.hashtags,
+            h6.date-author
+                // font-size: 13px
+                // line-height: 135%
+                // font-style: normal
+                // letter-spacing: 0.18em
+                // text-transform: uppercase
+                // margin-bottom: 24px
+            h1.article-title
+                // @include font-head
+                // font-weight: 600
+                // font-size: 42px
+                // line-height: 122%
+                // margin-bottom: 23px
+            h6.date-author
+                span
+                    // display: block
+                    &:before
+                        // display: none
+                        // content: '—'
+                        // margin-right: 0.8em
+        .img
+            // margin-bottom: 18px
+            .img-inner
+                // width: 100%
+                height: 480px
+                // background-color: $print-black
+        .article-body
+            // margin-left: auto
+            // margin-right: auto
+            // width: 51%
+            width: 740px
+            // padding-top: 38px
+            // padding-bottom: 28px
+            // line-height: 180%
+            // @include font-serif
+            p
+                // @include font-serif
+                // font-size: 18px
+                // line-height: 185%
+                // font-weight: 300
+                // margin-bottom: 34px
+            h3
+                // @include font-head
+                // font-weight: 600
+                // font-size: 26px
+                // line-height: 135%
+                // margin-top: 48px
+                // margin-bottom: 22px
+            blockquote
+                // font-size: 22px
+                // font-weight: 600
+                // font-style: italic
+                // line-height: 170%
+                // margin: 64px auto
+                // text-align: center
+                &:after
+                    // margin-top: 14px
+                    // margin-left: auto
+                    // margin-right: auto
+                    // content: ''
+                    // background-color: $print-black
+                    // height: 3px
+                    // width: 38px
+                    // display: block
+            ul, ol
+                li
+                    // font-size: 18px
+                    // line-height: 180%
+                    // font-weight: 300
+                    &:last-child
+                        // margin-bottom: 25px
+            ul
+                li
+                    // list-style-type: disc
+            ol
+                li
+                    // list-style-type: decimal
+
+// Comentarios
+.article-comments
+    padding-top: 20px
+    padding-bottom: 34px
+
+@media (min-width: 768px)
+    .article-comments
+        padding-top: 20px
+        padding-bottom: 52px    
+
+@media (min-width: 900px)
+    .article-comments
+        padding-top: 20px
+        padding-bottom: 62px    
+
+@media (min-width: 1200px)
+    .article-comments
+        padding-top: 20px
+        padding-bottom: 68px    
+
+.grid-related
+    padding-top: 54px !important
+
+@media (min-width: 768px)
+    .grid-related
+        padding-top: 68px !important
+
+// @media (min-width: 900px)
+//     .grid-related
+//         padding-top: 62px !important
+
+@media (min-width: 1200px)
+    .grid-related
+        padding-top: 68px !important
+
+@media (min-width: 1400px)
+    .grid-related
+        padding-top: 74px !important
+
+// Footer
+footer.site-footer
+    background-color: $print-black
+    color: white
+    .site-footer-wrapper
+        text-align: center
+        padding-top: 66px
+        padding-bottom: 66px
+        a
+            color: white
+            font-weight: 600
+            font-size: 15px
+            transition: all ease 0.3s
+            display: block
+            margin-bottom: 26px
+            &:hover, &:focus
+                color: $selected
+        p
+            text-align: center
+            text-transform: uppercase
+            font-size: 11px
+            line-height: 150%
+            letter-spacing: 0.185em
+
+.page
+    .page-header
+        background-color: $blue-cream
+        padding-top: 170px
+        padding-bottom: 46px
+        .page-header-inner
+            h1
+                width: 98%
+                @include font-head
+                font-weight: 600
+                font-size: 34px
+                line-height: 125%
+                margin-top: 0
+                // color: $print-black
+                // margin-bottom: 24px
+    .page-body
+        padding-top: 38px
+        padding-bottom: 28px
+        line-height: 180%
+        @include font-serif
+        color: $print-black
+        .page-body-inner
+            p
+                @include font-serif
+                font-size: 16px
+                font-weight: 300
+                margin-bottom: 25px
+            h3
+                @include font-head
+                font-weight: 600
+                font-size: 24px
+                line-height: 135%
+                margin-top: 48px
+                margin-bottom: 20px
+            a
+                color: $print-black
+                font-weight: 600
+                transition: all ease 0.3s
+                &:hover, &:focus
+                    color: $selected
+            blockquote
+                font-size: 19px
+                font-weight: 600
+                font-style: italic
+                line-height: 170%
+                margin: 47px 0
+                p
+                    font-size: 19px
+                    font-weight: 600
+                    font-style: italic
+                    line-height: 170%
+                &:after
+                    margin-top: 14px
+                    content: ''
+                    background-color: $print-black
+                    height: 3px
+                    width: 38px
+                    display: block
+            ul, ol
+                margin-bottom: 30px
+                li
+                    display: list-item
+                    margin-left: 1.2em
+                    margin-bottom: 12px
+                    &:last-child
+                        margin-bottom: 25px
+            ul
+                li
+                    list-style-type: disc
+            ol
+                li
+                    list-style-type: decimal
+
+@media (min-width: 768px)
+    .page
+        .page-header
+            // padding-top: 60px
+            padding-top: 200px
+            padding-bottom: 60px
+            .page-header-inner
+                h1
+        .page-body
+            .page-body-inner
+                margin-left: auto
+                margin-right: auto
+                padding-top: 14px
+                padding-bottom: 24px
+                p
+                h3
+                blockquote
+                    margin: 54px auto
+                    text-align: center
+                    &:after
+                        margin-left: auto
+                        margin-right: auto
+                ul, ol
+                    li
+                        &:last-child
+                ul
+                    li
+                ol
+                    li
+
+@media (min-width: 900px)
+    .page
+        .page-header
+            padding-top: 240px
+            padding-bottom: 100px
+            .page-header-inner
+                h1
+                    text-align: center
+                    font-size: 42px
+        .page-body
+            .page-body-inner
+                padding-top: 20px
+                margin-left: auto
+                margin-right: auto
+                width: 65%
+                p
+                    // @include font-serif
+                    font-size: 18px
+                    line-height: 185%
+                    font-weight: 300
+                    margin-bottom: 30px
+                h3
+                    // @include font-head
+                    // font-weight: 600
+                    font-size: 26px
+                    // line-height: 135%
+                    margin-top: 50px
+                    margin-bottom: 22px
+                blockquote
+                    font-size: 22px
+                    // font-weight: 600
+                    // font-style: italic
+                    // line-height: 170%
+                    margin: 64px auto
+                    // text-align: center
+                    &:after
+                        // margin-top: 14px
+                        // margin-left: auto
+                        // margin-right: auto
+                        // content: ''
+                        // background-color: $print-black
+                        // height: 3px
+                        // width: 38px
+                        // display: block
+                ul, ol
+                    li
+                        font-size: 18px
+                        line-height: 180%
+                        font-weight: 300
+                        &:last-child
+                            // margin-bottom: 25px
+                ul
+                    li
+                        // list-style-type: disc
+                ol
+                    li
+                        // list-style-type: decimal
+
+@media (min-width: 1200px)
+    .page
+        .page-header
+            // padding-top: 70px
+            padding-top: 250px
+            padding-bottom: 110px
+            .page-header-inner
+                h1
+        .page-body
+            .page-body-inner
+                // padding-top: 20px
+                width: 700px
+                p
+                    // @include font-serif
+                    // font-size: 18px
+                    // line-height: 185%
+                    // font-weight: 300
+                    // margin-bottom: 34px
+                h3
+                    // @include font-head
+                    // font-weight: 600
+                    // font-size: 26px
+                    // line-height: 135%
+                    margin-top: 52px
+                    // margin-bottom: 24px
+                blockquote
+                    // font-size: 22px
+                    // font-weight: 600
+                    // font-style: italic
+                    // line-height: 170%
+                    // margin: 64px auto
+                    // text-align: center
+                    &:after
+                        // margin-top: 14px
+                        // margin-left: auto
+                        // margin-right: auto
+                        // content: ''
+                        // background-color: $print-black
+                        // height: 3px
+                        // width: 38px
+                        // display: block
+                ul, ol
+                    li
+                        // font-size: 18px
+                        // line-height: 180%
+                        // font-weight: 300
+                        &:last-child
+                            // margin-bottom: 25px
+                ul
+                    li
+                        // list-style-type: disc
+                ol
+                    li
+                        // list-style-type: decimal
+
+@media (min-width: 1400px)
+    .page
+        .page-header
+            // padding-top: 70px
+            // padding-top: 250px
+            // padding-bottom: 110px
+            .page-header-inner
+                h1
+        .page-body
+            .page-body-inner
+                // padding-top: 20px
+                width: 740px
+                p
+                    // @include font-serif
+                    // font-size: 18px
+                    // line-height: 185%
+                    // font-weight: 300
+                    // margin-bottom: 34px
+                h3
+                    // @include font-head
+                    // font-weight: 600
+                    // font-size: 26px
+                    // line-height: 135%
+                    margin-top: 52px
+                    // margin-bottom: 24px
+                blockquote
+                    // font-size: 22px
+                    // font-weight: 600
+                    // font-style: italic
+                    // line-height: 170%
+                    // margin: 64px auto
+                    // text-align: center
+                    &:after
+                        // margin-top: 14px
+                        // margin-left: auto
+                        // margin-right: auto
+                        // content: ''
+                        // background-color: $print-black
+                        // height: 3px
+                        // width: 38px
+                        // display: block
+                ul, ol
+                    li
+                        // font-size: 18px
+                        // line-height: 180%
+                        // font-weight: 300
+                        &:last-child
+                            // margin-bottom: 25px
+                ul
+                    li
+                        // list-style-type: disc
+                ol
+                    li
+                        // list-style-type: decimal
