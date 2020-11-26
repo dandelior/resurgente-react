@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
-import moment from 'moment/min/moment-with-locales'
+import 'moment/locale/es';
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -15,6 +15,8 @@ function urlFor(source) {
 export default function ItemsGrid({name, slug, hasLinkToMore, isCategory, hasHashtag, isTag, from, to}) {
 
     const [allPostsData, setAllPosts] = useState(null);
+    const moment = require('moment');
+
     let query;
 
     if (isTag) {
@@ -59,6 +61,7 @@ export default function ItemsGrid({name, slug, hasLinkToMore, isCategory, hasHas
                             <div className="data">
                                 <h6 className="date-tags">
                                     {moment(post.fecha).locale('es').format('LL')}
+                                    {/* {post.fecha} */}
                                     {hasHashtag && (
                                         <>
                                             <span>&nbsp;—&nbsp;</span>

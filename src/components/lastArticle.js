@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import {
     Link
 } from "react-router-dom";
-import moment from 'moment/min/moment-with-locales'
 import sanityClient from "./../client.js";
 import imageUrlBuilder from "@sanity/image-url";
+import 'moment/locale/es';
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -13,6 +13,7 @@ function urlFor(source) {
 
 export default function LastArticle() {
     const [lastPostsData, setLastPost] = useState(null);
+    const moment = require('moment');
 
     useEffect(() => {
         sanityClient

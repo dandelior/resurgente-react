@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
-import moment from 'moment/min/moment-with-locales'
+import 'moment/locale/es'
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -19,6 +19,7 @@ export default function Tag() {
     const [numberPosts, setNumberPosts] = useState(9);
     let [loadMoreMessage, msj] = useState('Cargar más');
     // let [buttonDisabled, setButtonDisabled] = useState('active');
+    const moment = require('moment');
     const { slug } = useParams();
     let from = 0;
     // let to = 9;
@@ -90,6 +91,7 @@ export default function Tag() {
                                 </Link>
                                 <div className="data">
                                     <h6 className="date-tags">
+                                        {/* {post.fecha} */}
                                         {moment(post.fecha).locale('es').format('LL')}
                                     </h6>
                                     <Link to={`${'/'+post.postSlug.current}`}>

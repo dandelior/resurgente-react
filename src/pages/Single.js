@@ -5,7 +5,7 @@ import sanityClient from "../client.js";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 import { Link } from "react-router-dom";
-import moment from 'moment/min/moment-with-locales';
+import 'moment/locale/es'
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -14,6 +14,8 @@ function urlFor(source) {
 
 export default function Single() {
     const [postData, setPostData] = useState(null);
+    const moment = require('moment');
+
     const { slug } = useParams();
     
     useEffect(() => {
@@ -38,9 +40,7 @@ export default function Single() {
 
     if (!postData) return "";
 
-    // console.log(postData.contenido[0].children[0].text);
     let firstText = postData.contenido[0].children[0].text.replace('&nbsp;', ' ')+ '...';
-    console.log(firstText);
 
     return (
         <>
@@ -61,6 +61,7 @@ export default function Single() {
                         {postData.titulo}
                     </h1>
                     <h6 className="date-author">
+                        {/* { postData.fecha } */}
                         {moment(postData.fecha).locale('es').format('LL')}
                         <br />
                         <span>

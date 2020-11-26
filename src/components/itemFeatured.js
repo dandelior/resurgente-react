@@ -4,8 +4,7 @@ import {
 } from "react-router-dom";
 import sanityClient from "./../client.js";
 import imageUrlBuilder from "@sanity/image-url";
-
-import moment from 'moment/min/moment-with-locales'
+import 'moment/locale/es'
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -14,6 +13,7 @@ function urlFor(source) {
 
 export default function ItemFeatured() {
     const [featuredPostData, setFeaturedPost] = useState(null);
+    const moment = require('moment');
 
     useEffect(() => {
         sanityClient
