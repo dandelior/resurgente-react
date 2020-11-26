@@ -73,6 +73,22 @@ export default function Autor() {
         <>
             <Helmet>
                 <title>{posts[0].nombre} — Resurgente</title>
+                <meta name="title" content={`${posts[0].nombre} — Resurgente`} />
+                <meta name="description" content="Fe & Cultura" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={`https://resurgente.com/autor/${slug}`} />
+                <meta property="og:title" content={`${posts[0].nombre} — Resurgente`} />
+                <meta property="og:description" content="Fe & Cultura" />
+                <meta property="og:image" content={process.env.PUBLIC_URL + '/img/land.jpg'} />
+
+                {/* Twitter */}
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content={`https://resurgente.com/autor/${slug}`} />
+                <meta property="twitter:title" content={`${posts[0].nombre} — Resurgente`} />
+                <meta property="twitter:description" content="Fe & Cultura" />
+                <meta property="twitter:image" content={process.env.PUBLIC_URL + '/img/land.jpg'} />
             </Helmet>
             <section className={`grid-articles grid-on-category`}>
                 <div className="grid-articles-wrapper pd-lr">

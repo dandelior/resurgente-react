@@ -11,6 +11,22 @@ export default function Home() {
         <>
             <Helmet>
                 <title>Resurgente — Fe & Cultura</title>
+                <meta name="title" content="Resurgente — Fe & Cultura" />
+                <meta name="description" content="Fe & Cultura" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://resurgente.com/" />
+                <meta property="og:title" content="Resurgente — Fe & Cultura" />
+                <meta property="og:description" content="Fe & Cultura" />
+                <meta property="og:image" content={process.env.PUBLIC_URL + '/img/land.jpg'} />
+
+                {/* Twitter */}
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://resurgente.com/" />
+                <meta property="twitter:title" content="Resurgente — Fe & Cultura" />
+                <meta property="twitter:description" content="Fe & Cultura" />
+                <meta property="twitter:image" content={process.env.PUBLIC_URL + '/img/land.jpg'} />
             </Helmet>
             {/* Ultimo Articulo */}
             <LastArticle />
