@@ -81,14 +81,14 @@ export default function Autor() {
                 <meta property="og:url" content={`https://resurgente.com/autor/${slug}`} />
                 <meta property="og:title" content={`${posts[0].nombre} — Resurgente`} />
                 <meta property="og:description" content="Fe & Cultura" />
-                <meta property="og:image" content={process.env.PUBLIC_URL + '/img/land.jpg'} />
+                <meta property="og:image" content={'https://resurgente.com'+ process.env.PUBLIC_URL + '/img/land.jpg'} />
 
                 {/* Twitter */}
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content={`https://resurgente.com/autor/${slug}`} />
                 <meta property="twitter:title" content={`${posts[0].nombre} — Resurgente`} />
                 <meta property="twitter:description" content="Fe & Cultura" />
-                <meta property="twitter:image" content={process.env.PUBLIC_URL + '/img/land.jpg'} />
+                <meta property="twitter:image" content={'https://resurgente.com'+ process.env.PUBLIC_URL + '/img/land.jpg'} />
             </Helmet>
             <section className={`grid-articles grid-on-category`}>
                 <div className="grid-articles-wrapper pd-lr">

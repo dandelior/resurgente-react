@@ -51,14 +51,14 @@ export default function Single() {
 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={`https://resurgente.com/${postData.slug}`} />
+                <meta property="og:url" content={`https://resurgente.com/${slug}`} />
                 <meta property="og:title" content={`${postData.titulo} — Resurgente`} />
                 <meta property="og:description" content={firstText} />
                 <meta property="og:image" content={urlFor(postData.imagenDestacada).width(1200).height(628).url()} />
 
                 {/* Twitter */}
                 <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content={`https://resurgente.com/${postData.slug}`} />
+                <meta property="twitter:url" content={`https://resurgente.com/${slug}`} />
                 <meta property="twitter:title" content={`${postData.titulo} — Resurgente`} />
                 <meta property="twitter:description" content={firstText} />
                 <meta property="twitter:image" content={urlFor(postData.imagenDestacada).width(1200).height(628).url()} />
