@@ -38,10 +38,17 @@ export default function Single() {
           .catch(console.error);
     }, [slug]);
 
-    if (!postData) return "";
+    if (!postData) return (
+        <p>
+            404
+        </p>
+    );
+    // console.log('slug: '+slug);
+    // console.log('postData.slugTag.current: '+postData.slug.current);
 
     let firstText = postData.contenido[0].children[0].text.replace('&nbsp;', ' ')+ '...';
 
+    // if (slug === postData.slug.current) 
     return (
         <>
             <Helmet>

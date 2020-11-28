@@ -67,7 +67,11 @@ export default function Tag() {
     }
 
     let posts = postData;
-    if (!postData) return "";
+    if (!postData) return (
+        <p>
+            404
+        </p>
+    );
 
     return (
         <>

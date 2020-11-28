@@ -49,7 +49,7 @@ export default function Autor() {
 
     useEffect(() => {
         return history.listen((location) => { 
-            console.log(`Path cambiado a: ${location.pathname}`) 
+            // console.log(`Path cambiado a: ${location.pathname}`) 
             setNumberPosts(9);
         }) 
      },[history]) 
@@ -67,7 +67,11 @@ export default function Autor() {
     }
 
     let posts = postData;
-    if (!postData) return "";
+    if (!postData) return (
+        <p>
+            404
+        </p>
+    );
 
     return (
         <>

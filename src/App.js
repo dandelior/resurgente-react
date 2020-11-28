@@ -29,10 +29,6 @@ export default function App() {
           <Home />
         </Route>
 
-        <Route exact path="/:slug">
-          <Single />
-        </Route>
-
         <Route exact path="/tag/:slug">
           <Tag />
         </Route>
@@ -40,6 +36,13 @@ export default function App() {
         <Route exact path="/autor/:slug">
           <Autor />
         </Route>
+
+        <Route path="/:slug">
+          <Single />
+        </Route>
+
+        {/* <Route>
+        </Route> */}
 
       </AnimatedSwitch>
       <Footer />
