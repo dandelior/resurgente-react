@@ -55,7 +55,7 @@ export default function Autor() {
      },[history]) 
 
     const loadMore = () => {
-        console.log(postData[0].articulo.length);
+        // console.log(postData[0].articulo.length);
         let postsLength = postData[0].articulo.length;
         if (postsLength < numberPosts) {
             console.log('No hay mas posts');
