@@ -39,12 +39,24 @@ export default function Single() {
     }, [slug]);
 
     if (!postData) return (
-        <p>
-            404
-        </p>
+        <div className="no-page">
+            <h1>
+                <span className="highlighten">
+                    {/* (╯°□°）╯ */}
+                        ლ(ಠ益ಠლ)
+                </span>
+                    <br />
+                    No encontramos
+                    <br />
+                    lo que buscas
+            </h1>
+            <p>
+                Por favor, comprueba que el link no sea antiguo.<br />
+                Hemos borrado cierto contenido para hacer Resurgente cada día mejor. <br />
+                Si tienes dudas contactanos a <a href="mailto:contacto@resurgente.com">contacto@resurgente.com</a>
+            </p>
+        </div>
     );
-    // console.log('slug: '+slug);
-    // console.log('postData.slugTag.current: '+postData.slug.current);
 
     let firstText = postData.contenido[0].children[0].text.replace('&nbsp;', ' ')+ '...';
 

@@ -66,76 +66,101 @@ export default function Autor() {
         }
     }
 
-    let posts = postData;
-    if (!postData) return (
-        <p>
-            404
-        </p>
-    );
+    let nombreAutor;
+    let articulos;
+
+    if (postData != null && postData.length) {
+        nombreAutor = postData[0].nombre;
+        articulos = postData[0].articulo;
+        return (
+            <>
+                <Helmet>
+                    <title>{nombreAutor} — Resurgente</title>
+                    <meta name="title" content={`${nombreAutor} — Resurgente`} />
+                    <meta name="description" content="Fe & Cultura" />
+    
+                    {/* Open Graph / Facebook */}
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content={`https://resurgente.com/autor/${slug}`} />
+                    <meta property="og:title" content={`${nombreAutor} — Resurgente`} />
+                    <meta property="og:description" content="Fe & Cultura" />
+                    <meta property="og:image" content={'https://resurgente.com'+ process.env.PUBLIC_URL + '/img/land.jpg'} />
+    
+                    {/* Twitter */}
+                    <meta property="twitter:card" content="summary_large_image" />
+                    <meta property="twitter:url" content={`https://resurgente.com/autor/${slug}`} />
+                    <meta property="twitter:title" content={`${nombreAutor} — Resurgente`} />
+                    <meta property="twitter:description" content="Fe & Cultura" />
+                    <meta property="twitter:image" content={'https://resurgente.com'+ process.env.PUBLIC_URL + '/img/land.jpg'} />
+                </Helmet>
+                <section className={`grid-articles grid-on-category`}>
+                    <div className="grid-articles-wrapper pd-lr">
+                        <header className="section-header">
+                            <h6 className="section-title">
+                                {nombreAutor}
+                            </h6>
+                        </header>
+                        <div className="articles-grid">
+    
+                            {articulos &&
+                                articulos.map((post) => post.postSlug && (
+                                <div className="item post-class">
+                                    <Link to={`${'/'+post.postSlug.current}`}>
+                                        <div className="img" style={{ backgroundImage: 'url('+urlFor(post.imagenDestacada).url()+')' }}></div>
+                                    </Link>
+                                    <div className="data">
+                                        <h6 className="date-tags">
+                                            {/* {post.fecha} */}
+                                            {moment(post.fecha).locale('es').format('LL')}
+                                            <span>&nbsp;—&nbsp;</span>
+                                            <Link to={`/tag/`+post.slugTag.current} className="tag tag-id slug">
+                                                #{post.nombreTag}
+                                            </Link>
+                                        </h6>
+                                        <Link to={`${'/'+post.postSlug.current}`}>
+                                            <h3 className="article-title">
+                                                {post.titulo}
+                                            </h3>
+                                        </Link>
+                                    </div>
+                                </div>
+                            ))}
+    
+                        </div>
+                        <div className="more">
+                            <button className={`loadMore`} onClick={loadMore}>
+                                {loadMoreMessage}
+                            </button>
+                        </div>
+    
+                    </div>
+                </section>
+            </>
+        )
+    }
 
     return (
         <>
             <Helmet>
-                <title>{posts[0].nombre} — Resurgente</title>
-                <meta name="title" content={`${posts[0].nombre} — Resurgente`} />
-                <meta name="description" content="Fe & Cultura" />
-
-                {/* Open Graph / Facebook */}
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={`https://resurgente.com/autor/${slug}`} />
-                <meta property="og:title" content={`${posts[0].nombre} — Resurgente`} />
-                <meta property="og:description" content="Fe & Cultura" />
-                <meta property="og:image" content={'https://resurgente.com'+ process.env.PUBLIC_URL + '/img/land.jpg'} />
-
-                {/* Twitter */}
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content={`https://resurgente.com/autor/${slug}`} />
-                <meta property="twitter:title" content={`${posts[0].nombre} — Resurgente`} />
-                <meta property="twitter:description" content="Fe & Cultura" />
-                <meta property="twitter:image" content={'https://resurgente.com'+ process.env.PUBLIC_URL + '/img/land.jpg'} />
+                <title>Página no encontrada</title>
             </Helmet>
-            <section className={`grid-articles grid-on-category`}>
-                <div className="grid-articles-wrapper pd-lr">
-                    <header className="section-header">
-                        <h6 className="section-title">
-                            {posts[0].nombre}
-                        </h6>
-                    </header>
-                    <div className="articles-grid">
-
-                        {posts[0].articulo &&
-                            posts[0].articulo.map((post) => post.postSlug && (
-                            <div className="item post-class">
-                                <Link to={`${'/'+post.postSlug.current}`}>
-                                    <div className="img" style={{ backgroundImage: 'url('+urlFor(post.imagenDestacada).url()+')' }}></div>
-                                </Link>
-                                <div className="data">
-                                    <h6 className="date-tags">
-                                        {/* {post.fecha} */}
-                                        {moment(post.fecha).locale('es').format('LL')}
-                                        <span>&nbsp;—&nbsp;</span>
-                                        <Link to={`/tag/`+post.slugTag.current} className="tag tag-id slug">
-                                            #{post.nombreTag}
-                                        </Link>
-                                    </h6>
-                                    <Link to={`${'/'+post.postSlug.current}`}>
-                                        <h3 className="article-title">
-                                            {post.titulo}
-                                        </h3>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-
-                    </div>
-                    <div className="more">
-                        <button className={`loadMore`} onClick={loadMore}>
-                            {loadMoreMessage}
-                        </button>
-                    </div>
-
-                </div>
-            </section>
+            <div className="no-page">
+                <h1>
+                    <span className="highlighten">
+                        {/* (╯°□°）╯ */}
+                            ლ(ಠ益ಠლ)
+                    </span>
+                        <br />
+                        No encontramos
+                        <br />
+                        lo que buscas
+                </h1>
+                <p>
+                    Por favor, comprueba que el link no sea antiguo.<br />
+                    Hemos borrado cierto contenido para hacer Resurgente cada día mejor. <br />
+                    Si tienes dudas contactanos a <a href="mailto:contacto@resurgente.com">contacto@resurgente.com</a>
+                </p>
+            </div>
         </>
-    )
+    );
 }

@@ -29,11 +29,11 @@ export default function App() {
           <Home />
         </Route>
 
-        <Route exact path="/tag/:slug">
+        <Route path="/tag/:slug">
           <Tag />
         </Route>
 
-        <Route exact path="/autor/:slug">
+        <Route path="/autor/:slug">
           <Autor />
         </Route>
 
